@@ -120,11 +120,15 @@ margin: 0 auto;
 예약내역이 여러개일 경우 아래 박스가 복제되어 늘어나도록 해야함 -->
 	
 
-<div th:if="${cartList.size()} != 0" style="overflow:auto; height: 480px; width: 730px; margin: 0 auto;">
+<div th:if="${cartList.size()} != 0">
 	<div class="allCheckBox"  style="width: 700px;margin: 0 auto;" onclick="getCheckedCntAll()">
-	<input type="checkbox" id="allResult" name="allCheck" style="text-align: left; margin-left: 2px; width: 32px; height: 32px;" >
-	<span class="cartDivision" style="width: 700px; margin: auto; text-align: center; ">&nbsp;No.&emsp;&emsp;테마사진&emsp;&nbsp;&emsp;담긴정보&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;금 액</span></div>
-<div class="allContent" th:each="cartList,listStat: ${cartList}" >
+	  <input type="checkbox" id="allResult" name="allCheck" style="text-align: left; margin-left: 2px; width: 32px; height: 32px;" >
+	  <span class="cartDivision" style="width: 700px; margin: auto; text-align: center; ">&nbsp;No.&emsp;&emsp;테마사진&emsp;&nbsp;&emsp;담긴정보&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;금 액</span>
+	</div>
+</div>
+
+<div th:if="${cartList.size()} != 0" style="overflow:auto; max-height: 480px; width: 730px; margin: 0 auto;">
+   <div class="allContent" th:each="cartList,listStat: ${cartList}" >
 	
 	
    <div class="cartlist">
@@ -154,9 +158,9 @@ margin: 0 auto;
    </div>
 </div>   
 
-
 </div> <!-- 예약정보를 담고있는 div의 끝 -->
 </div>
+
  <div th:if="${cartList.size()} == 0" style="margin: 70px 0;">
 <div class=empty-cart style="text-align: center;">
         <img src="/images/empty-cart.png" alt="My Image" width="40" height="40" style="margin-bottom: 15px;"><br>
@@ -170,6 +174,9 @@ margin: 0 auto;
           <li style="font-size: 15px;">장바구니는 회원전용 페이지로 로그아웃 시 보이지 않습니다.</li>
         </ul>
 </div>
+
+
+
 <div th:if="${cartList.size()} != 0">
 <!-- 예약개수와 총 금액 표기란 -->
 <div class="totalPri" style=" margin: 0 auto; text-align:justify; width: 700px;">
